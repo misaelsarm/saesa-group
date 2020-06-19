@@ -1,0 +1,365 @@
+@import "abstracts/variables";
+@import "base/base";
+@import "base/typography";
+
+.nav {
+    display: flex;
+    background-color: $color-primary;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100vw;
+    z-index: 3;
+    padding: 1rem;
+    height: 6.5rem;
+    &-brand {
+        width: 12rem;
+        img {
+            width: 100%;
+        }
+    }
+    &-links {
+        top: 0;
+        right: 0;
+        background-color: $color-primary;
+        transform: translateX(100%);
+        height: 100vh;
+        width: 50%;
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 1.5rem;
+        li {
+            list-style: none;
+            a {
+                text-decoration: none;
+                color: $color-white;
+            }
+        }
+    }
+}
+
+.menu {
+    height: 4rem;
+    width: 4rem;
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    .line {
+        height: 0.3rem;
+        width: 90%;
+        background-color: white;
+    }
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url("../assets/img/DA7X.jpg");
+    background-size: cover;
+    background-position: center;
+    transform: translateY(6.5rem);
+    padding: 2rem;
+    height: 100vh;
+    color: $color-white;
+    &-title {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    &-logo {
+        width: 30rem;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.intro {
+    background-color: $color-light-grey;
+    height: calc(100vh - 6.5rem);
+    position: relative;
+    color: $color-primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2rem;
+    &-title {
+        font-size: 4.2rem;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    &-text {
+        text-align: justify;
+        font-size: 2rem;
+    }
+
+    &-image {
+        width: 100%;
+        z-index: 2;
+        img {
+            width: 100%;
+        }
+    }
+
+    .triangle {
+        display: none;
+        background-color: $color-primary;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        clip-path: polygon(100% 0, 100% 100%, 30% 100%);
+        z-index: 1;
+    }
+}
+
+.services {
+    background-color: $color-light-grey;
+    &-image {
+        color: $color-white;
+        height: 20rem;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url("../assets/img/maint1.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h2 {
+            font-size: 4rem;
+        }
+    }
+    .cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 2rem;
+        .card {
+            background-color: $color-primary;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            height: 25rem;
+            width: 100%;
+            color: white;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            &:nth-child(even) {
+                background-image: linear-gradient(to bottom right, $color-secondary, $color-tertiary);
+            }
+            &-title {
+                font-weight: 500;
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+            &-text {
+                font-size: 1.6rem;
+            }
+            .btn {
+                outline: none;
+                border: 0.1rem solid $color-white;
+                font-size: 1.5rem;
+                display: block;
+                padding: 0.8rem;
+                width: 50%;
+                background-color: transparent;
+                color: white;
+                font-weight: 500;
+                position: relative;
+                overflow: hidden;
+                text-align: center;
+                text-decoration: none;
+                transition: all 0.2s;
+                &::after {
+                    transition: all 0.2s;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    content: "";
+                    background: white;
+                    height: 100%;
+                    width: 100%;
+                    color: $color-primary;
+                }
+                &:hover {
+                    background-color: white;
+                    color: black;
+                    &::after {
+                        top: 70%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.benefits {
+    height: calc(100vh - 6.5rem);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    color: $color-primary;
+    &-title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 4rem;
+        font-weight: 500;
+    }
+    .benefits-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        &-card {
+            width: 100%;
+            padding: 1rem;
+            background: $color-white;
+            border-radius: 0.5rem;
+            height: auto;
+            border: 0.1rem solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            margin-bottom: 2rem;
+            &:hover {
+                box-shadow: 0.2rem 0rem 0.8rem rgba(0, 0, 0, 0.2);
+            }
+            &-title {
+                font-size: 1.7rem;
+                font-weight: 500;
+            }
+            i {
+                font-size: 5rem;
+                background-image: linear-gradient(to bottom right, $color-secondary, $color-tertiary);
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+        }
+    }
+}
+
+.footer {
+    color: $color-white;
+    background-color: $color-primary;
+    height: calc(100vh - 6.5rem);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .logo {
+        width: 30rem;
+        img {
+            width: 100%;
+        }
+    }
+
+    .location {
+        ul {
+            li {
+                list-style: none;
+                margin-bottom: 1.5rem;
+                font-size: 1.7rem;
+            }
+        }
+    }
+
+    .footer-menu {
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            li {
+                margin: 1rem;
+                list-style: none;
+                margin-bottom: 1.5rem;
+                font-size: 1.7rem;
+                a {
+                    color: $color-white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .menu {
+        display: none;
+    }
+    .nav {
+        &-links {
+            margin-right: 5rem;
+            position: static;
+            transform: translateX(0);
+            height: auto;
+            width: auto;
+            flex-direction: row;
+            li {
+                &:not(:last-child) {
+                    margin-right: 5rem;
+                }
+            }
+        }
+    }
+
+    .header {
+        flex-direction: row;
+        justify-content: space-around;
+        transform: translateY(0);
+        &-title {
+            text-align: left;
+            font-size: 2.5rem;
+            width: 50%;
+        }
+        &-logo {
+            width: 40rem;
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .intro {
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 2rem;
+        &-wrap {
+            width: 50%;
+        }
+        &-title {
+            text-align: left;
+        }
+
+        &-text {
+            text-align: left;
+            font-size: 2rem;
+        }
+
+        &-image {
+            width: 52rem;
+            z-index: 2;
+            img {
+                width: 100%;
+            }
+        }
+
+        .triangle {
+            display: block;
+            clip-path: polygon(100% 0, 100% 100%, 40% 100%);
+        }
+    }
+}
